@@ -18,7 +18,7 @@ def load_and_merge_metadata():
     if not os.path.exists(PARTITION_FILE):
         sys.exit(f"Error: Partition file not found at {PARTITION_FILE}")
         
-    df_part = pd.read_csv(PARTITION_FILE, delim_whitespace=True, header=None, names=['filename', 'partition'])
+    df_part = pd.read_csv(PARTITION_FILE, sep=r"\s+", header=None, names=['filename', 'partition'])
 
     # 2. Load Labels
     # Sci-check: We assume headers exist in the label file (common in CelebA). 
